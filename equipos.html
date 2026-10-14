@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Equipos y problemas · IA para líderes · CECOMSA</title>
+<link rel="icon" href="assets/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<nav class="nav"></nav>
+
+<header class="hero slim">
+  <div class="wrap">
+    <div class="eyebrow">// memoria del taller</div>
+    <h1>Equipos y problemas</h1>
+    <p>Qué problema eligió cada equipo y qué MVP construyó.</p>
+  </div>
+</header>
+
+<div id="out"></div>
+
+<footer></footer>
+<script src="assets/site.js"></script>
+<script src="assets/datos.js"></script>
+<script>
+(function () {
+  var out = document.getElementById('out'), html = '';
+  DATOS.sedes.forEach(function (s) {
+    html += '<section class="s"><div class="wrap"><div class="eyebrow">// ' + s.sede + ' · Día 1: ' + s.dia1 + ' · Día 2: ' + s.dia2 + '</div>' +
+      '<h2>' + s.sede + '</h2>';
+    if (!s.equipos.length) {
+      html += '<p class="muted">Se completa después del Día 1 (' + s.dia1 + ').</p>';
+    } else {
+      html += '<div class="grid">' + s.equipos.map(function (e, k) {
+        var c = ['', ' f', ' o'][k % 3];
+        return '<div class="card' + c + '"><span class="tag">' + (e.mvp || 'MVP') + '</span><h3 style="margin-top:8px">' + e.equipo + '</h3>' +
+          '<p class="muted">' + (e.areas || '') + '</p><p style="margin-top:8px">' + (e.problema || '') + '</p>' +
+          (e.enlace ? '<p style="margin-top:8px"><a href="' + e.enlace + '">Ver MVP</a></p>' : '') + '</div>';
+      }).join('') + '</div>';
+    }
+    html += '</div></section>';
+  });
+  if (DATOS.actualizado) html += '<section class="s"><div class="wrap"><p class="muted">Actualizado: ' + DATOS.actualizado + '</p></div></section>';
+  out.innerHTML = html;
+})();
+</script>
+</body>
+</html>

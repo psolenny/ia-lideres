@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Versión para imprimir · IA para líderes · CECOMSA</title>
+<link rel="icon" href="assets/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+.sheet{max-width:820px;margin:28px auto;border:1px solid var(--line);border-radius:12px;padding:32px 36px;background:#fff;}
+.sheet .top{display:flex;justify-content:space-between;align-items:center;border-bottom:3px solid var(--magenta);padding-bottom:10px;margin-bottom:16px;}
+.sheet .top img{height:34px;}
+.sheet .top .t{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--magenta);}
+.sheet h2{font-size:26px;margin-bottom:6px;}
+.sheet h3{font-size:16px;margin:14px 0 4px;color:var(--magenta);}
+.sheet p,.sheet li,.sheet td{font-size:13px;line-height:1.45;}
+.sheet .tbl{margin-top:6px;}
+.sheet .tbl td,.sheet .tbl th{padding:5px 7px;}
+.sheet .sem{grid-template-columns:repeat(3,1fr);gap:8px;margin-top:6px;}
+.sheet .sem .c{padding:10px;}
+.sheet .sem .c h3{font-size:13px;margin:0 0 4px;color:var(--ink);}
+.sheet .sem .c ul{font-size:12px;}
+.sheet .check li{margin-bottom:4px;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.lin{border-bottom:1px solid var(--muted);height:26px;}
+.box2{border:1px solid var(--muted);border-radius:8px;height:92px;margin-top:4px;}
+.bar-top{max-width:820px;margin:20px auto 0;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;}
+@media print{
+  @page{size:letter;margin:12mm;}
+  body{background:#fff;}
+  .sheet{border:none;border-radius:0;margin:0;padding:0;max-width:none;page-break-after:always;}
+  .sheet:last-of-type{page-break-after:auto;}
+  .bar-top{display:none;}
+}
+</style>
+</head>
+<body>
+<nav class="nav"></nav>
+
+<div class="bar-top wrap noprint">
+  <p class="muted">Tres hojas tamaño carta: guía de bolsillo, ficha del reto y registro de 2 semanas.</p>
+  <button class="btn line" onclick="window.print()">Imprimir</button>
+</div>
+
+<!-- hoja 1 · guía de bolsillo -->
+<div class="sheet">
+  <div class="top"><img src="assets/logo.svg" alt="CECOMSA"><span class="t">IA para líderes · guía de bolsillo</span></div>
+  <h2>Pedir, decidir, verificar.</h2>
+  <h3>1 · Pedir: RCTFR</h3>
+  <table class="tbl">
+    <tr><td class="h">R · Rol</td><td>Quién debe ser la IA.</td></tr>
+    <tr><td class="h">C · Contexto</td><td>Qué pasa, para quién, por qué.</td></tr>
+    <tr><td class="h">T · Tarea</td><td>Qué necesitas exactamente.</td></tr>
+    <tr><td class="h">F · Formato</td><td>Cómo lo quieres recibir.</td></tr>
+    <tr><td class="h">R · Restricciones</td><td>Qué evitar, límites, tono.</td></tr>
+  </table>
+  <p style="margin-top:6px">Agrega: «Antes de responder, hazme las preguntas que necesites».</p>
+  <h3>2 · Decidir qué datos usar: semáforo</h3>
+  <div class="sem">
+    <div class="c g"><h3>Verde · sí</h3><ul><li>Comunicación general</li><li>Presentaciones internas sin datos sensibles</li><li>Borradores propios</li></ul></div>
+    <div class="c y"><h3>Naranja · con autorización de TI</h3><ul><li>Clientes o proveedores</li><li>Contratos</li><li>Finanzas</li><li>Estrategias</li></ul></div>
+    <div class="c r"><h3>Rojo · nunca</h3><ul><li>Datos personales de colaboradores</li><li>Generar el logo</li></ul></div>
+  </div>
+  <h3>3 · Verificar antes de usar</h3>
+  <ul class="check">
+    <li><b>Datos:</b> cada cifra, nombre y fecha, verificada.</li>
+    <li><b>Tono:</b> suena a ti y sirve para quien lo lee.</li>
+    <li><b>Sesgo:</b> no trata de forma injusta a nadie.</li>
+    <li><b>Confidencialidad:</b> no revela lo que no debía.</li>
+    <li><b>Criterio:</b> sabes por qué lo aceptas y qué cambiaste.</li>
+  </ul>
+  <p style="margin-top:10px"><b>Pensar no se delega.</b> La IA ejecuta; el líder decide y firma.</p>
+</div>
+
+<!-- hoja 2 · ficha del reto -->
+<div class="sheet">
+  <div class="top"><img src="assets/logo.svg" alt="CECOMSA"><span class="t">IA para líderes · ficha del reto · Día 1</span></div>
+  <h2>Equipo: <span style="display:inline-block;width:60%;border-bottom:1px solid var(--muted)">&nbsp;</span></h2>
+  <h3>Reto 1 · Elegir el problema (15 min)</h3>
+  <ul class="check">
+    <li>Real y frecuente · pasa cada semana</li>
+    <li>Le duele a más de uno del equipo</li>
+    <li>Sin datos rojos · se puede trabajar con datos ficticios</li>
+    <li>Cabe en el taller · algo funciona en 45 minutos</li>
+  </ul>
+  <p>Problema elegido:</p><div class="lin"></div><div class="lin"></div>
+  <h3>Reto 2 · Definirlo (15 min)</h3>
+  <div class="two-col">
+    <div><p>¿A quién le duele?</p><div class="box2"></div></div>
+    <div><p>¿Cuánto tiempo cuesta hoy? (veces/semana × min)</p><div class="box2"></div></div>
+    <div><p>¿Cómo se ve resuelto?</p><div class="box2"></div></div>
+    <div><p>¿Cómo sabremos que funcionó?</p><div class="box2"></div></div>
+  </div>
+  <h3>Roles</h3>
+  <table class="tbl">
+    <tr><td class="h">Facilitador y tiempo</td><td></td><td class="h">Prompter</td><td></td></tr>
+    <tr><td class="h">Verificador</td><td></td><td class="h">Presentador</td><td></td></tr>
+  </table>
+  <h3>Reto 3 · MVP (45 min) · marca uno</h3>
+  <ul class="check">
+    <li>Asistente configurado</li><li>Plantilla o cadena de prompts</li><li>Documento o guía</li><li>Herramienta simple en HTML (Pro)</li>
+  </ul>
+</div>
+
+<!-- hoja 3 · registro -->
+<div class="sheet">
+  <div class="top"><img src="assets/logo.svg" alt="CECOMSA"><span class="t">IA para líderes · registro de 2 semanas</span></div>
+  <h2>Registro de uso del MVP.</h2>
+  <p>Nombre del equipo: ____________________ · Mi rol en el equipo: ____________________</p>
+  <table class="tbl" style="margin-top:12px">
+    <tr><th>Fecha</th><th>Tarea</th><th>Min antes</th><th>Min con MVP</th><th>¿Qué falló o corregiste?</th></tr>
+    <tr><td style="height:30px"></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td style="height:30px"></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td style="height:30px"></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td style="height:30px"></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td style="height:30px"></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td style="height:30px"></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td style="height:30px"></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td style="height:30px"></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td style="height:30px"></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td style="height:30px"></td><td></td><td></td><td></td><td></td></tr>
+  </table>
+  <p style="margin-top:12px"><b>Horas liberadas al mes</b> = (min antes − min con MVP) × veces por mes ÷ 60. Si «min antes» es una estimación, anótalo.</p>
+</div>
+
+<footer></footer>
+<script src="assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kit Día 2 · IA para líderes · CECOMSA</title>
+<link rel="icon" href="assets/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<nav class="nav"></nav>
+
+<header class="hero slim">
+  <div class="wrap">
+    <div class="eyebrow">// kit Día 2 · abierto en tu laptop durante la sesión</div>
+    <h1>Kit Día 2 · Afina y lleva al equipo</h1>
+    <p>Convierte el MVP en una v2 afinada y prepara su adopción en tu equipo real.</p>
+  </div>
+</header>
+
+<section class="s" style="padding:18px 0">
+  <div class="wrap">
+    <div class="toc" style="margin-top:0"><a href="#agenda">Agenda</a><a href="#afinar">Afinar</a><a href="#automatizar">Automatizar (Pro)</a><a href="#equipo">Mensaje al equipo</a><a href="#pitch">Guion del pitch</a><a href="#plan">Plan 30-60-90</a><a href="#salida">Encuesta de salida</a></div>
+  </div>
+</section>
+
+<section class="s" id="agenda">
+  <div class="wrap">
+    <div class="eyebrow">// agenda · 8:00 – 11:00</div>
+    <h2>Agenda del Día 2.</h2>
+    <div class="scroll"><table class="tbl">
+      <tr><th>Hora</th><th>Min</th><th>Bloque</th><th>Modalidad</th></tr>
+      <tr><td class="h">8:00</td><td>20</td><td>Retorno del reto: consolidar el registro</td><td>Equipo + plenaria</td></tr>
+      <tr><td class="h">8:20</td><td>15</td><td>F4 · De tarea a flujo</td><td>Fundamento</td></tr>
+      <tr><td class="h">8:35</td><td>55</td><td>Reto 4 · MVP v2: afinar y automatizar</td><td>Equipo (roles rotan)</td></tr>
+      <tr class="brk"><td class="h">9:30</td><td>10</td><td>Receso</td><td>—</td></tr>
+      <tr><td class="h">9:40</td><td>30</td><td>Reto 5 · Llevarlo a mi equipo</td><td>Equipo</td></tr>
+      <tr><td class="h">10:10</td><td>30</td><td>Pitch final · 4 min por equipo</td><td>Plenaria</td></tr>
+      <tr><td class="h">10:40</td><td>10</td><td>Plan 30-60-90</td><td>Individual</td></tr>
+      <tr><td class="h">10:50</td><td>10</td><td>Cierre: vuelta a la tesis y encuesta</td><td>Plenaria</td></tr>
+    </table></div>
+    <p class="muted" style="margin-top:10px;font-size:14px"><span class="pend">[Agenda sujeta a la versión A o B de «Pensar no se delega» y al tiempo del anuncio de Innovación por Todos.]</span></p>
+  </div>
+</section>
+
+<section class="s" id="afinar">
+  <div class="wrap">
+    <div class="eyebrow">// reto 4 · ruta base</div>
+    <h2>Ficha de afinado.</h2>
+    <ol class="steps" style="list-style:none">
+      <li class="step"><b>Lista los fallos</b>Del registro de dos semanas: cada vez que corregiste algo, anótalo.</li>
+      <li class="step"><b>Conviértelos en reglas</b>Cada fallo se vuelve una línea en las instrucciones: «Nunca…», «Siempre…».</li>
+      <li class="step"><b>Agrega ejemplos</b>Un ejemplo de «así sí» y uno de «así no».</li>
+      <li class="step"><b>Documenta la cadena</b>Pasos en orden, con lo que cambia en [corchetes], para que otro la repita.</li>
+      <li class="step"><b>Prueba con un caso nuevo</b>Uno que no usaron en las dos semanas.</li>
+    </ol>
+    <div class="prompt"><header><h3>Prompt para afinar</h3><button class="copy">Copiar</button></header>
+<pre>Estas son las instrucciones actuales de mi asistente: [pega las instrucciones].
+En dos semanas de uso encontramos estos fallos: [lista de fallos].
+Reescribe las instrucciones para corregirlos. Agrega un ejemplo de respuesta correcta y uno de respuesta incorrecta.
+Al final, dime qué riesgos siguen sin resolver.</pre></div>
+  </div>
+</section>
+
+<section class="s" id="automatizar">
+  <div class="wrap">
+    <div class="eyebrow">// reto 4 · ruta pro</div>
+    <h2>Ficha de automatización.</h2>
+    <p class="lead">Subir al último escalón: que el flujo corra con un disparador (un correo, un formulario, un horario).</p>
+    <div class="grid">
+      <div class="card"><h3>1 · Disparador</h3><p>¿Qué evento inicia el flujo?</p><div class="field"></div></div>
+      <div class="card f"><h3>2 · Pasos</h3><p>¿Qué hace la IA y qué hace una persona?</p><div class="field"></div></div>
+      <div class="card o"><h3>3 · Revisión humana</h3><p>¿Dónde revisa alguien antes de que salga?</p><div class="field"></div></div>
+      <div class="card"><h3>4 · Datos</h3><p>¿Qué datos pasan por el flujo? Semáforo verde solamente.</p><div class="field"></div></div>
+    </div>
+    <div class="note"><b>Herramientas:</b> solo las aprobadas por TI. <span class="pend">[Definir cuáles: por ejemplo, Microsoft 365 / Power Automate, si están habilitadas.]</span> Sin herramienta habilitada, la ruta Pro se queda en una cadena avanzada documentada.</div>
+  </div>
+</section>
+
+<section class="s" id="equipo">
+  <div class="wrap">
+    <div class="eyebrow">// reto 5 · 30 min</div>
+    <h2>Mensaje de lanzamiento a tu equipo.</h2>
+    <div class="grid">
+      <div class="card"><h3>Estructura</h3><ol><li>Qué problema resuelve.</li><li>Qué es el MVP y cómo se usa.</li><li>Qué no reemplaza.</li><li>Cómo empezar esta semana.</li><li>A quién preguntar.</li></ol></div>
+      <div class="card f"><h3>Objeciones típicas</h3><ul><li>«¿Me va a reemplazar?»</li><li>«Yo no sé de tecnología.»</li><li>«Es más trabajo revisar que hacerlo.»</li><li>«¿Y si se equivoca?»</li><li>«¿Puedo poner datos de clientes?»</li></ul></div>
+    </div>
+    <div class="prompt"><header><h3>Ensayo con un colaborador escéptico</h3><button class="copy">Copiar</button></header>
+<pre>Vas a actuar como un colaborador de mi equipo que desconfía de usar IA en el trabajo. Llevas 8 años en el área y haces bien tu trabajo.
+Te voy a presentar una herramienta nueva: [describe el MVP].
+Hazme una objeción a la vez, de forma realista. Espera mi respuesta.
+Después de 4 objeciones, dime qué respuesta mía fue la más convincente, cuál la menos y por qué.</pre></div>
+  </div>
+</section>
+
+<section class="s" id="pitch">
+  <div class="wrap narrow">
+    <div class="eyebrow">// pitch final · 4 min</div>
+    <h2>Guion del pitch.</h2>
+    <div class="scroll"><table class="tbl">
+      <tr><th>Tiempo</th><th>Qué decir</th></tr>
+      <tr><td class="h">0:00 – 0:30</td><td>El problema: a quién le duele y cuánto cuesta hoy.</td></tr>
+      <tr><td class="h">0:30 – 2:00</td><td>El MVP v2 funcionando, en vivo.</td></tr>
+      <tr><td class="h">2:00 – 2:45</td><td>Horas liberadas al mes, con la base del registro.</td></tr>
+      <tr><td class="h">2:45 – 3:30</td><td>Qué decidió el equipo: qué aceptó, corrigió y descartó de la IA.</td></tr>
+      <tr><td class="h">3:30 – 4:00</td><td>En qué estrategia invertirán esas horas.</td></tr>
+    </table></div>
+    <p style="margin-top:12px">Se evalúa con la <a href="rubrica.html">rúbrica del pitch</a>.</p>
+  </div>
+</section>
+
+<section class="s" id="plan">
+  <div class="wrap">
+    <div class="eyebrow">// individual · 10 min</div>
+    <h2>Plan 30-60-90.</h2>
+    <div class="grid">
+      <div class="card"><h3>30 días · yo</h3><p>Qué uso cada semana y cómo mido el tiempo.</p><div class="box"></div></div>
+      <div class="card f"><h3>60 días · mi equipo</h3><p>Quién lo adopta y cómo lo acompaño.</p><div class="box"></div></div>
+      <div class="card o"><h3>90 días · mi área</h3><p>Qué otra tarea subo de escalón y qué reporto.</p><div class="box"></div></div>
+    </div>
+    <div class="card" style="margin-top:16px"><h3>Las horas liberadas las invierto en:</h3><p>La iniciativa estratégica de mi área en la que pondré ese tiempo.</p><div class="field"></div></div>
+  </div>
+</section>
+
+<section class="s" id="salida">
+  <div class="wrap narrow">
+    <div class="eyebrow">// cierre</div>
+    <h2>Encuesta de salida.</h2>
+    <p>Dos minutos: qué sirvió, qué no y qué necesitas para seguir. <span class="pend">[enlace de Microsoft Forms]</span></p>
+  </div>
+</section>
+
+<footer></footer>
+<script src="assets/site.js"></script>
+</body>
+</html>

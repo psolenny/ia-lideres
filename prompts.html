@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mejores prompts · IA para líderes · CECOMSA</title>
+<link rel="icon" href="assets/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<nav class="nav"></nav>
+
+<header class="hero slim">
+  <div class="wrap">
+    <div class="eyebrow">// biblioteca · por pilar del Modelo de Liderazgo</div>
+    <h1>Mejores prompts</h1>
+    <p>Listos para copiar. Cambia lo que está entre [corchetes] y revisa siempre antes de usar.</p>
+  </div>
+</header>
+
+<section class="s">
+  <div class="wrap">
+    <div class="filters" id="filters"></div>
+    <div id="list"></div>
+    <div class="note"><b>Esta biblioteca crece con el taller.</b> Los prompts que mejor funcionen en los MVP de los equipos se agregan con el nombre del equipo que los aportó.</div>
+  </div>
+</section>
+
+<footer></footer>
+<script src="assets/site.js"></script>
+<script>
+// Para agregar un prompt: copia un bloque, cambia los campos y guarda.
+var PROMPTS = [
+  {pilar:'Comunicación', t:'Correo difícil', para:'Responder una queja, decir que no o dar una mala noticia sin perder la relación.', p:
+'Eres [rol] en CECOMSA, distribuidora de tecnología en República Dominicana.\nContexto: [qué pasó, con quién, qué se espera de ti].\nTarea: redacta la respuesta.\nFormato: correo de máximo 8 líneas, con asunto.\nRestricciones: tono cercano y profesional; reconoce el problema sin culpar a nadie; no prometas fechas que no te he dado; cierra con un próximo paso concreto.', cambia:'Rol, contexto y el próximo paso que sí puedes cumplir.'},
+  {pilar:'Comunicación', t:'Resumen ejecutivo', para:'Convertir un informe largo en algo que Dirección lea en un minuto.', p:
+'Resume el siguiente texto para la gerencia.\nFormato: 5 puntos de máximo 2 líneas, luego «Riesgos» (máximo 3) y «Decisión que se necesita» (1 línea).\nNo agregues información que no esté en el texto. Si algo es ambiguo, márcalo con [verificar].\nTexto:\n[pega el texto sin datos de clientes ni de colaboradores]', cambia:'El texto. Quita nombres y montos sensibles antes de pegarlo.'},
+  {pilar:'Comunicación', t:'Comunicado de un cambio', para:'Anunciar un cambio al equipo y anticipar sus dudas.', p:
+'Eres [rol]. Tengo que comunicar este cambio a mi equipo de [n] personas: [describe el cambio, desde cuándo y por qué].\nDame:\n1. Un mensaje de máximo 10 líneas para el chat del equipo.\n2. Las 5 preguntas o preocupaciones más probables, con una respuesta breve y honesta para cada una.\nTono: claro, cercano, sin minimizar las preocupaciones.', cambia:'El cambio y el canal (chat, correo, reunión).'},
+  {pilar:'Comunicación', t:'Minuta y seguimiento', para:'De notas sueltas a minuta, plan de acción y correo.', p:
+'Estas son mis notas de una reunión: [pega las notas].\nDevuélveme:\n1. Minuta: temas tratados y acuerdos.\n2. Tabla de acciones: acción, responsable, fecha. Si falta responsable o fecha, escribe [pendiente], no lo inventes.\n3. Correo de seguimiento de máximo 8 líneas para los asistentes.', cambia:'Las notas. Usa roles en lugar de nombres si la herramienta no está aprobada para datos internos.'},
+  {pilar:'Desarrollo de equipos', t:'Preparar un 1:1', para:'Llegar a una conversación individual con estructura.', p:
+'Voy a tener una reunión 1:1 de 30 minutos con un colaborador que es [rol, antigüedad aproximada, sin nombre].\nTemas que quiero tocar: [lista].\nLo que sé de su situación: [contexto general, sin datos personales sensibles].\nDame una agenda de 30 minutos y 6 preguntas abiertas que le ayuden a hablar, no a defenderse.', cambia:'Rol y temas. No incluyas datos personales ni de salud.'},
+  {pilar:'Desarrollo de equipos', t:'Retroalimentación SBI', para:'Dar feedback concreto: Situación, Comportamiento, Impacto.', p:
+'Ayúdame a preparar retroalimentación con el modelo SBI (Situación, Comportamiento, Impacto).\nSituación: [cuándo y dónde].\nComportamiento observado: [lo que hizo, sin juicios].\nImpacto: [en el equipo, el cliente o el resultado].\nDame dos versiones: una para reconocer y otra para corregir, de 4 a 6 líneas cada una, y una pregunta para cerrar escuchando.', cambia:'Los hechos. La IA ordena; tú decides qué decir.'},
+  {pilar:'Desarrollo de equipos', t:'Plan de desarrollo', para:'Un borrador de plan para que un colaborador crezca en una habilidad.', p:
+'Un colaborador con rol de [rol] necesita fortalecer [habilidad].\nPropón un plan de 90 días con: 3 objetivos medibles, 1 actividad práctica por mes en su trabajo diario, cómo lo acompaño yo como líder y cómo sabremos que avanzó.\nNada de cursos genéricos si no te los pido.', cambia:'Rol y habilidad. Revísalo con la persona; no es un plan cerrado.'},
+  {pilar:'Desarrollo de equipos', t:'Guía de onboarding', para:'Que cada persona nueva reciba lo mismo, sin depender de quién la reciba.', p:
+'Crea una guía de onboarding para un nuevo [rol] en el área de [área].\nEstructura: primera semana día por día, primer mes por semanas, personas clave (por rol, no por nombre), herramientas que usará y 10 preguntas frecuentes.\nFormato: listo para pegar en un documento.', cambia:'Rol, área y lo particular de tu equipo.'},
+  {pilar:'Mejora de procesos', t:'Mapear un proceso', para:'Ver un proceso completo y dónde se pierde tiempo.', p:
+'Te voy a describir un proceso de mi área: [descripción paso a paso como lo harías en voz alta].\n1. Ordénalo en pasos numerados con quién hace cada uno.\n2. Marca dónde hay esperas, retrabajos o pasos duplicados.\n3. Propón 3 mejoras: una sin tecnología, una con IA y una que requeriría a TI.\nNo asumas sistemas que no te he mencionado.', cambia:'La descripción del proceso.'},
+  {pilar:'Mejora de procesos', t:'Checklist operativo', para:'Reducir errores en una tarea repetitiva.', p:
+'Convierte este procedimiento en un checklist operativo: [procedimiento].\nReglas: máximo 12 puntos, cada uno verificable con sí/no, en el orden en que se hace, y marca con (crítico) los que, si se omiten, causan un error grave.', cambia:'El procedimiento.'},
+  {pilar:'Mejora de procesos', t:'De tarea a cadena', para:'Convertir una tarea en pasos que cualquiera pueda repetir.', p:
+'Quiero convertir esta tarea repetitiva en una cadena de 3 a 4 prompts: [tarea, cuándo ocurre y qué se entrega].\nPara cada paso dame el objetivo, el prompt completo y qué debe revisar la persona antes de seguir. Marca en [corchetes] lo que cambia cada vez.', cambia:'La tarea.'},
+  {pilar:'Análisis y decisión', t:'Analizar una tabla', para:'Encontrar patrones en datos agregados.', p:
+'Te comparto una tabla agregada, sin datos de clientes ni de personas: [pega la tabla].\n1. Describe las 3 tendencias principales con los números que las sustentan.\n2. Señala valores atípicos.\n3. Dime qué no se puede concluir con estos datos.\nNo calcules nada que no puedas mostrar paso a paso.', cambia:'La tabla. Verifica cada número contra la fuente.'},
+  {pilar:'Análisis y decisión', t:'Abogado del diablo', para:'Probar una decisión antes de tomarla.', p:
+'Estoy por decidir: [decisión y razones].\nActúa como un gerente escéptico. Dame los 5 argumentos más fuertes en contra, los supuestos que estoy dando por ciertos y qué información me faltaría para estar seguro.\nNo me des la razón.', cambia:'La decisión. La IA prepara; la decisión es tuya.'},
+  {pilar:'Innovación', t:'Del problema a la idea', para:'Generar alternativas antes de enamorarte de una.', p:
+'Problema: [a quién le duele, cuánto cuesta hoy, en qué área].\nDame 8 ideas para resolverlo, de más simple a más ambiciosa. Para cada una: qué haría falta, si requiere a TI, y cómo probarla en una semana con un MVP.', cambia:'El problema.'},
+  {pilar:'Innovación', t:'Preparar un pitch', para:'Presentar una mejora en 4 minutos.', p:
+'Ayúdame a preparar un pitch de 4 minutos para presentar esta mejora: [problema, solución, resultados medidos].\nEstructura: problema (30 s), demostración (90 s), resultado con números (45 s), decisiones que tomamos como equipo (45 s), siguiente paso (30 s).\nUsa solo los números que te di.', cambia:'El contenido. Ensaya en voz alta.'}
+];
+var pilares = ['Todos'].concat(PROMPTS.map(function (x) { return x.pilar; }).filter(function (v, i, a) { return a.indexOf(v) === i; }));
+var f = document.getElementById('filters'), list = document.getElementById('list');
+function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+function render(p) {
+  list.innerHTML = PROMPTS.filter(function (x) { return p === 'Todos' || x.pilar === p; }).map(function (x) {
+    return '<div class="prompt"><header><div><span class="tag">' + x.pilar + '</span><h3 style="margin-top:6px">' + x.t + '</h3></div><button class="copy">Copiar</button></header>' +
+      '<p class="meta"><b>Para qué:</b> ' + x.para + '</p><pre>' + esc(x.p) + '</pre><p class="meta"><b>Qué cambiar:</b> ' + x.cambia + '</p></div>';
+  }).join('');
+  f.querySelectorAll('button').forEach(function (b) { b.classList.toggle('on', b.textContent === p); });
+}
+f.innerHTML = pilares.map(function (p) { return '<button type="button">' + p + '</button>'; }).join('');
+f.addEventListener('click', function (e) { if (e.target.tagName === 'BUTTON') render(e.target.textContent); });
+render('Todos');
+</script>
+</body>
+</html>

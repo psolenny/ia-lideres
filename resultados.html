@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tablero de resultados · IA para líderes · CECOMSA</title>
+<link rel="icon" href="assets/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:20px;}
+.kpi{border:1px solid var(--line);border-radius:14px;padding:18px;}
+.kpi .v{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:44px;line-height:1;color:var(--ink);}
+.kpi .l{font-size:14px;color:var(--muted);margin-top:6px;}
+.bars{margin-top:22px;}
+.bar-row{display:grid;grid-template-columns:minmax(120px,220px) 1fr 70px;gap:12px;align-items:center;padding:6px 0;border-bottom:1px solid var(--line);font-size:15px;}
+.bar-row .track{height:14px;background:var(--soft);border-radius:7px;overflow:hidden;}
+.bar-row .fill{height:100%;background:var(--magenta);border-radius:7px;}
+.bar-row .n{font-family:'JetBrains Mono',monospace;font-weight:700;text-align:right;}
+</style>
+</head>
+<body>
+<nav class="nav"></nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">// evidencia · menos tareas, más resultados</div>
+    <h1>Tablero de resultados</h1>
+    <p>Horas liberadas al mes por equipo y por sede, calculadas con el registro de dos semanas de uso real.</p>
+  </div>
+</header>
+
+<section class="s"><div class="wrap" id="out"></div></section>
+
+<section class="s">
+  <div class="wrap narrow">
+    <div class="eyebrow">// cómo se calcula</div>
+    <h2>Método.</h2>
+    <p>Horas liberadas al mes = (minutos antes − minutos con el MVP) × veces que ocurre la tarea al mes ÷ 60.</p>
+    <p>Los minutos salen del registro de cada equipo entre el Día 1 y el Día 2. Cuando el tiempo «antes» es una estimación y no una medición, el equipo lo declara en su pitch. Las cifras son autorreportadas y no están auditadas.</p>
+  </div>
+</section>
+
+<footer></footer>
+<script src="assets/site.js"></script>
+<script src="assets/datos.js"></script>
+<script>
+(function () {
+  var out = document.getElementById('out');
+  var todos = [], porSede = DATOS.sedes.map(function (s) {
+    var t = 0;
+    s.equipos.forEach(function (e) { if (typeof e.horas_mes === 'number') { t += e.horas_mes; todos.push({ n: e.equipo + ' · ' + s.sede.split(' ')[0], h: e.horas_mes }); } });
+    return { sede: s.sede, total: t, n: s.equipos.length };
+  });
+  if (!todos.length) {
+    out.innerHTML = '<div class="eyebrow">// estado</div><h2>Sin datos todavía.</h2><p class="lead">Se completa con los registros que los equipos consolidan al inicio del Día 2 (Santiago: 4 de noviembre; Santo Domingo: 5 de noviembre).</p>';
+    return;
+  }
+  var total = porSede.reduce(function (a, s) { return a + s.total; }, 0);
+  var equipos = porSede.reduce(function (a, s) { return a + s.n; }, 0);
+  var html = '<div class="eyebrow">// totales</div><h2>' + total.toFixed(0) + ' horas al mes liberadas.</h2><div class="kpis">' +
+    '<div class="kpi"><div class="v">' + total.toFixed(0) + '</div><div class="l">horas/mes, ambas sedes</div></div>' +
+    '<div class="kpi"><div class="v">' + equipos + '</div><div class="l">equipos</div></div>' +
+    porSede.map(function (s) { return '<div class="kpi"><div class="v">' + s.total.toFixed(0) + '</div><div class="l">horas/mes · ' + s.sede + '</div></div>'; }).join('') + '</div>';
+  todos.sort(function (a, b) { return b.h - a.h; });
+  var max = todos[0].h || 1;
+  html += '<h3 style="margin-top:36px">Por equipo (horas/mes)</h3><div class="bars">' + todos.map(function (e) {
+    return '<div class="bar-row"><span>' + e.n + '</span><span class="track"><span class="fill" style="display:block;width:' + (e.h / max * 100) + '%"></span></span><span class="n">' + e.h.toFixed(1) + '</span></div>';
+  }).join('') + '</div>';
+  out.innerHTML = html;
+})();
+</script>
+</body>
+</html>
