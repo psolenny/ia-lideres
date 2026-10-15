@@ -4,7 +4,7 @@
     ['Inicio', 'index.html'],
     ['Presentaciones', [['Día 1 · Construye', 'dia-1.html'], ['Día 2 · Afina y lleva al equipo', 'dia-2.html']]],
     ['Kits', [['Kit general', 'kit-general.html'], ['Kit Día 1', 'kit-dia-1.html'], ['Kit Día 2', 'kit-dia-2.html'], ['Versión para imprimir', 'imprimir.html']]],
-    ['Guías', [['Buenas prácticas', 'buenas-practicas.html'], ['Mejores prompts', 'prompts.html'], ['Política de uso de IA', 'politica-ia.html'], ['Rúbrica del pitch', 'rubrica.html']]],
+    ['Guías', [['Buenas prácticas', 'buenas-practicas.html'], ['Mejores prompts', 'prompts.html'], ['Política de uso de IA', 'politica-ia.html'], ['Riesgos de seguridad', 'seguridad.html'], ['Rúbrica del pitch', 'rubrica.html']]],
     ['Resultados', [['Equipos y problemas', 'equipos.html'], ['Tablero de resultados', 'resultados.html']]]
   ];
   var here = location.pathname.split('/').pop() || 'index.html';

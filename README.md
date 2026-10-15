@@ -12,6 +12,7 @@ Sitio estático para GitHub Pages; no requiere compilación.
 | `kit-general.html`, `kit-dia-1.html`, `kit-dia-2.html` | Kits para participantes |
 | `buenas-practicas.html`, `prompts.html` | Guías para después del taller |
 | `politica-ia.html` | Resumen de la política de uso de IA de CECOMSA |
+| `seguridad.html` | Riesgos de seguridad: inyección de prompt con demo de texto oculto, fraude, fugas |
 | `rubrica.html` | Rúbrica del pitch final |
 | `equipos.html`, `resultados.html` | Memoria del taller y tablero de horas liberadas |
 | `imprimir.html` | Guía de bolsillo, ficha del reto y registro en tamaño carta |

@@ -139,3 +139,4 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   .card,.prompt,.sem .c{break-inside:avoid;}
   a{color:var(--ink);text-decoration:none;}
 }
+section[id]{scroll-margin-top:72px;}
