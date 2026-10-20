@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoja del participante · IA para líderes · CECOMSA</title>
+<link rel="icon" href="assets/logo.svg">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#002F6C;--rosa:#E31C79;--magenta:#A20067;--negro:#111;--ink:#1F2A3C;--muted:#5B6678;--line:#CFD5DF;--soft:#F5F6F9}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#e9ebf0;color:var(--ink);font-family:Inter,system-ui,sans-serif;font-size:11.5px;line-height:1.35}
+.pagina{background:#fff;width:210mm;min-height:297mm;margin:12px auto;padding:12mm 13mm 10mm;position:relative;box-shadow:0 2px 14px rgba(0,0,0,.12);display:flex;flex-direction:column}
+.pagina::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,var(--navy) 0 40%,var(--rosa) 40% 75%,var(--magenta) 75%)}
+header{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:2px solid var(--negro);padding-bottom:6px;margin-bottom:8px}
+header b{font-family:'Space Grotesk',sans-serif;font-size:15px;display:block}
+header small{color:var(--muted);font-size:10.5px}
+header img{height:26px}
+.ey{font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--magenta);margin:9px 0 4px}
+h1{font-family:'Space Grotesk',sans-serif;font-size:20px;letter-spacing:-.02em;line-height:1.1}
+h2{font-family:'Space Grotesk',sans-serif;font-size:13px;margin-bottom:4px}
+.sub{color:var(--muted);margin-bottom:6px}
+.fila{display:grid;gap:9px}
+.c2{grid-template-columns:1fr 1fr}.c3{grid-template-columns:1fr 1fr 1fr}.c4{grid-template-columns:repeat(4,1fr)}
+.campo{border:1.5px solid var(--negro);border-radius:7px;padding:5px 7px;min-height:52px}
+.campo.alto{min-height:60px}
+.campo .l{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;color:var(--navy);display:block;text-transform:uppercase;letter-spacing:.05em}
+.campo .h{font-size:9.5px;color:var(--muted)}
+.crit{border:1.5px solid var(--line);border-radius:7px;padding:5px 7px}
+.crit b{display:block;font-size:11px}
+.crit span{font-size:9.5px;color:var(--muted)}
+.crit .cb{float:right;width:13px;height:13px;border:1.5px solid var(--negro);border-radius:3px}
+.claro{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;align-items:baseline}
+.claro .k{font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--rosa);font-size:11px;white-space:nowrap}
+.linea{border-bottom:1px dotted var(--line);height:15px}
+.regla{background:var(--negro);color:#fff;border-radius:7px;padding:6px 9px;font-family:'JetBrains Mono',monospace;font-size:10px;margin-top:6px}
+.regla b{color:var(--rosa)}
+.lista{list-style:none;display:grid;gap:4px}
+.lista li{padding-left:18px;position:relative}
+.lista li::before{content:"";position:absolute;left:0;top:2px;width:11px;height:11px;border:1.5px solid var(--negro);border-radius:3px}
+.frase b{display:block;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--navy);text-transform:uppercase}
+.frase{border-left:3px solid var(--rosa);padding:3px 8px;margin-bottom:5px}
+.sem{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
+.sem div{border-top:6px solid;border-radius:6px;padding:5px 7px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);border-left:1px solid var(--line)}
+.sem .g{border-top-color:#84BD00}.sem .y{border-top-color:#FF6900}.sem .r{border-top-color:#A20067}
+.sem b{display:block;font-size:11px}
+.pie{margin-top:auto;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:5px;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted)}
+.reg{width:100%;border-collapse:collapse;font-size:10.5px}
+.reg th,.reg td{border:1px solid var(--line);padding:5px 6px;text-align:left;height:26px}
+.reg th{font-family:'JetBrains Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.05em;color:var(--navy);background:var(--soft)}
+.qr{float:right;text-align:center;font-family:'JetBrains Mono',monospace;font-size:9px;margin:0 0 4px 10px}
+.qr img{display:block;width:78px;height:78px;image-rendering:pixelated}
+.imprimir{position:fixed;right:16px;bottom:16px;background:var(--negro);color:#fff;border:0;border-radius:999px;padding:10px 18px;font:700 13px Inter,sans-serif;cursor:pointer}
+@media print{body{background:#fff}.pagina{box-shadow:none;margin:0;width:auto;min-height:0;page-break-after:always}.imprimir{display:none}@page{size:A4;margin:0}}
+</style>
+</head>
+<body>
+
+<div class="pagina">
+  <header><div><b>IA para líderes · menos tareas, más resultados</b><small>Modelo de Liderazgo CECOMSA · Ing. Solenny Peralta · Gerente de Proyectos de Innovación y Servicios TI</small></div><img src="assets/logo.svg" alt="CECOMSA"></header>
+  <div class="ey">// hoja del participante · llénala durante el Día 1 · tráela al Día 2</div>
+  <h1>Tu primera tarea resuelta con IA.</h1>
+  <p class="sub">Lo que escribas aquí es lo que tu equipo construye hoy y lo que afinan en dos semanas.</p>
+  <div class="fila c3">
+    <div class="campo"><span class="l">Nombre</span></div>
+    <div class="campo"><span class="l">Área · sucursal</span></div>
+    <div class="campo"><span class="l">Equipo</span></div>
+  </div>
+
+  <div class="ey">// 01 · la tarea que más tiempo te roba (la de la nube)</div>
+  <div class="fila c2" style="grid-template-columns:2fr 1fr">
+    <div class="campo"><span class="l">La tarea</span><span class="h">qué haces, en una frase</span></div>
+    <div class="campo"><span class="l">Mi IA de pago</span><span class="h">la que uso para trabajo</span></div>
+  </div>
+  <div class="fila c4" style="margin-top:7px">
+    <div class="crit"><span class="cb"></span><b>Real y frecuente</b><span>pasa cada semana</span></div>
+    <div class="crit"><span class="cb"></span><b>Le duele a más de uno</b><span>dos del equipo lo reconocen</span></div>
+    <div class="crit"><span class="cb"></span><b>Sin datos rojos</b><span>se puede con datos ficticios</span></div>
+    <div class="crit"><span class="cb"></span><b>Cabe en el taller</b><span>algo funciona en 45 min</span></div>
+  </div>
+
+  <div class="ey">// 02 · el mapa de la tarea que eligió el equipo (reto 2)</div>
+  <div class="fila c3">
+    <div class="campo"><span class="l">1 · Tarea</span><span class="h">cabe en una entrada y una salida</span></div>
+    <div class="campo"><span class="l">2 · Cuándo ocurre</span><span class="h">llega un correo, cierra la semana…</span></div>
+    <div class="campo"><span class="l">3 · Qué entra</span><span class="h">qué información y dónde está hoy</span></div>
+    <div class="campo"><span class="l">4 · Qué hace la IA</span><span class="h">prepara, resume, clasifica, redacta</span></div>
+    <div class="campo"><span class="l">5 · Qué revisamos nosotros</span><span class="h">qué aprobamos antes de que salga</span></div>
+    <div class="campo"><span class="l">6 · Cómo sabemos que funcionó</span><span class="h">tiempo antes y después, errores</span></div>
+  </div>
+  <div class="campo" style="margin-top:7px;min-height:30px"><span class="l">En una frase</span><span class="h">«Cuando ______, la IA prepara ______ con ______, yo reviso ______ y mido ______.»</span></div>
+
+  <div class="ey">// 03 · tu prompt · pídelo CLARO</div>
+  <div class="fila c2" style="grid-template-columns:1.1fr 2fr">
+    <div class="claro">
+      <span class="k">C</span><span><b>Contexto</b> · quién eres, para quién es, qué pasa</span>
+      <span class="k">L</span><span><b>Lo que necesitas</b> · la tarea, con un verbo claro</span>
+      <span class="k">A</span><span><b>Archivos</b> · los datos o documentos que le das</span>
+      <span class="k">R</span><span><b>Resultado</b> · tabla, correo, viñetas, 1 página</span>
+      <span class="k">O</span><span><b>Omite</b> · qué no hacer: tono, límites, lo prohibido</span>
+    </div>
+    <div class="campo alto" style="min-height:190px"><span class="l">El prompt que mejor me funcionó</span></div>
+  </div>
+  <div class="regla"># regla de oro: <b>escríbelo como se lo pedirías a una persona inteligente que empezó hoy.</b></div>
+  <div class="pie"><span>IA para líderes · Día 1</span><span>1/2 →</span></div>
+</div>
+
+<div class="pagina">
+  <header><div><b>IA para líderes · menos tareas, más resultados</b><small>Modelo de Liderazgo CECOMSA · Ing. Solenny Peralta</small></div><img src="assets/logo.svg" alt="CECOMSA"></header>
+
+  <div class="ey">// antes de pegar o de usar · semáforo de datos</div>
+  <div class="sem">
+    <div class="g"><b>Verde · sí</b>Comunicación general · presentaciones internas sin datos sensibles · plantillas y borradores propios</div>
+    <div class="y"><b>Naranja · solo con TI</b>Datos de clientes o proveedores · contratos · información financiera · estrategias</div>
+    <div class="r"><b>Rojo · nunca</b>Datos personales de colaboradores · generar o recrear el logo de CECOMSA</div>
+  </div>
+  <div class="regla"># solo IA de pago para trabajo. En la gratuita, solo datos anónimos. <b>Si tienes dudas, consulta con TI.</b></div>
+  <ul class="lista" style="margin-top:7px">
+    <li>Nada de contraseñas, claves ni números de cuenta.</li>
+    <li>Anonimiza datos de clientes y colaboradores antes de pegar.</li>
+    <li>Desconfía de documentos de terceros: pueden traer órdenes escondidas (texto oculto). Ctrl/Cmd + A antes de pasarlos.</li>
+    <li>Verifica cada dato, cifra, cita y fuente. Suena convincente, tiene formato perfecto, y puede ser falso.</li>
+    <li>Una persona revisa antes de que algo salga a un cliente, a un pago o a un colaborador.</li>
+  </ul>
+
+  <div class="ey">// en vez de «está mal, arréglalo» · frases que sí funcionan</div>
+  <div class="fila c2">
+    <div><div class="frase"><b>largo</b>«Es muy largo: déjalo en 3 párrafos.»</div><div class="frase"><b>tono</b>«Suena a robot: escríbelo como se lo dirías a un colega.»</div><div class="frase"><b>falta algo</b>«Falta la fecha de entrega en el primer párrafo.»</div></div>
+    <div><div class="frase"><b>opciones</b>«Dame 2 versiones: una formal y una más cálida.»</div><div class="frase"><b>antes de asumir</b>«Si te falta información, pregúntame antes de responder.»</div><div class="frase"><b>señala qué y dónde</b>«El tercer párrafo promete una fecha que no tenemos; quítala.»</div></div>
+  </div>
+
+  <div class="ey">// las dos semanas · registro de uso real (lo cuentas en la app como check-in)</div>
+  <table class="reg">
+    <thead><tr><th style="width:12%">Fecha</th><th>Qué le pedí</th><th style="width:16%">Tiempo antes</th><th style="width:16%">Tiempo con IA</th><th style="width:24%">Qué falló / qué corregí</th></tr></thead>
+    <tbody><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr></tbody>
+  </table>
+  <p class="sub" style="margin-top:4px">Cada fallo es una instrucción que le faltó a tu MVP: es el material del Día 2.</p>
+
+  <div class="ey">// para trabajar todos los días · tres buenas prácticas</div>
+  <div class="qr" data-url="https://psolenny.github.io/ia-lideres/">Kit y materiales</div>
+  <ol style="padding-left:16px;display:grid;gap:3px">
+    <li><b>Usa una IA de pago, una sola, y apréndela bien.</b> Revisa en la configuración si tus conversaciones se usan para entrenar.</li>
+    <li><b>Crea un proyecto o asistente por tema de trabajo</b> con sus propias instrucciones y archivos. Dentro, una conversación por tarea.</li>
+    <li><b>Si la conversación se enredó,</b> pide un resumen y empieza una nueva con él. Lo importante va en las instrucciones fijas.</li>
+  </ol>
+  <div class="pie"><span>Día 2: Santiago 4 de noviembre · Santo Domingo 5 de noviembre · 8:00 a.m. · trae laptop, tu IA y esta hoja</span><span>2/2</span></div>
+</div>
+
+<button class="imprimir" onclick="print()">Imprimir / guardar PDF</button>
+<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
+<script>
+document.querySelectorAll('.qr[data-url]').forEach(function (d) { var q = qrcode(0, 'M'); q.addData(d.dataset.url); q.make(); d.insertAdjacentHTML('afterbegin', q.createImgTag(3, 0)); });
+</script>
+</body>
+</html>
