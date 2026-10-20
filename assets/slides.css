@@ -1,7 +1,9 @@
-/* Presentaciones · IA para líderes · CECOMSA
-   Láminas de énfasis (portada, tesis, separadores, cierres): solo azul #002F6C y verde #84BD00.
-   Láminas de contenido: fondo blanco, acentos magenta #A20067, fucsia #E31C79, naranja #FF6900. */
-:root{--navy:#002F6C;--verde:#84BD00;--magenta:#A20067;--fucsia:#E31C79;--naranja:#FF6900;
+/* Presentaciones · IA para líderes · CECOMSA · esquema v2 (oct 2026)
+   Contenido: fondo blanco con azul #002F6C, rosa #E31C79 y magenta #A20067 (familia A).
+   Separadores y retos: fondo blanco con verde #84BD00, naranja #FF6900 y azul (familia B).
+   Destacar (portada, tesis, cierres, impacto): fondo negro con blanco y rosa.
+   Nunca fondo verde ni naranja. El semáforo conserva sus colores por función. */
+:root{--navy:#002F6C;--verde:#84BD00;--magenta:#A20067;--fucsia:#E31C79;--naranja:#FF6900;--negro:#111111;
   --ink:#1F2A3C;--muted:#5B6678;--line:#DCE1EA;--soft:#F5F6F9;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html,body{height:100%;overflow:hidden;}
@@ -11,52 +13,56 @@ h1,h2,h3{font-family:'Space Grotesk',Helvetica,Arial,sans-serif;font-weight:700;
 .slide{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;padding:7vh 7vw 8vh;}
 .slide.on{display:flex;}
 .slide::before{content:"";position:absolute;top:0;left:0;right:0;height:10px;
-  background:linear-gradient(90deg,#A20067 0 20%,#E31C79 20% 40%,#FF6900 40% 60%,#84BD00 60% 80%,#002F6C 80% 100%);}
-.slide.dark{background:var(--navy);color:#fff;}
-.slide.dark::before{background:var(--verde);}
-.slide.verde{background:var(--verde);color:var(--navy);}
-.slide.verde::before{background:var(--navy);}
+  background:linear-gradient(90deg,var(--navy) 0 40%,var(--fucsia) 40% 75%,var(--magenta) 75% 100%);}
+.slide.dark{background:var(--negro);color:#fff;}
+.slide.dark::before{background:linear-gradient(90deg,#fff 0 40%,var(--fucsia) 40% 100%);}
+/* separadores y retos: familia B sobre blanco */
+.slide.sep{background:#fff;color:var(--navy);}
+.slide.sep::before{background:linear-gradient(90deg,var(--verde) 0 40%,var(--naranja) 40% 75%,var(--navy) 75% 100%);}
 .dark h1,.dark h2,.dark h3{color:#fff;}
-.verde h1,.verde h2,.verde h3{color:var(--navy);}
+.sep h1,.sep h2,.sep h3{color:var(--navy);}
 
 .logo{position:absolute;top:26px;right:30px;height:52px;width:150px;background:url("logo.svg") no-repeat right center/contain;}
 .dark .logo{background-image:url("logo-negativo.png");}
-.verde .logo{display:none;}
+.sep .logo{display:block;}
 
 .eyebrow{font-family:'JetBrains Mono',monospace;font-size:clamp(12px,1.45vw,17px);font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--magenta);margin-bottom:2.4vh;}
-.dark .eyebrow{color:var(--verde);}
-.verde .eyebrow{color:var(--navy);opacity:.85;}
+.dark .eyebrow{color:var(--fucsia);}
+.sep .eyebrow{color:var(--naranja);}
 
 h1{font-size:clamp(38px,7.4vw,104px);}
-h1 em,h2 em{font-style:normal;color:var(--verde);}
-.verde h1 em,.verde h2 em{color:#fff;}
+h1 em,h2 em{font-style:normal;color:var(--fucsia);}
+.sep h1 em,.sep h2 em{color:var(--verde);}
 h2{font-size:clamp(28px,4.8vw,64px);margin-bottom:3vh;}
 h3{font-size:clamp(18px,2.1vw,30px);}
 .sub{font-size:clamp(17px,2.1vw,29px);max-width:30ch;line-height:1.42;margin-top:2.4vh;color:var(--ink);}
 .sub.wide{max-width:44ch;}
 .dark .sub{color:rgba(255,255,255,.9);}
-.verde .sub{color:var(--navy);}
+.sep .sub{color:var(--navy);}
 
 /* tarjetas de contenido */
 .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:2.2vh 2vw;margin-top:1vh;}
 .cols.c2{grid-template-columns:1fr 1fr;}
 .bx{border:2px solid var(--line);border-top:8px solid var(--magenta);border-radius:16px;padding:2.4vh 1.6vw;background:#fff;}
-.bx.f{border-top-color:var(--fucsia);}.bx.o{border-top-color:var(--naranja);}
+.bx.f{border-top-color:var(--fucsia);}.bx.o{border-top-color:var(--navy);}
+.sep .bx{border-top-color:var(--verde);}.sep .bx.f{border-top-color:var(--naranja);}.sep .bx.o{border-top-color:var(--navy);}
 .bx .n{font-family:'JetBrains Mono',monospace;font-size:clamp(11px,1.25vw,16px);font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--fucsia);display:block;margin-bottom:.8vh;}
-.bx.o .n{color:var(--naranja);}.bx.m .n{color:var(--magenta);}
+.bx.o .n{color:var(--navy);}.bx.m .n{color:var(--magenta);}
+.sep .bx .n{color:var(--verde);}.sep .bx.f .n{color:var(--naranja);}.sep .bx.o .n{color:var(--navy);}
 .bx h3{margin-bottom:.8vh;}
 .bx p,.bx li{font-size:clamp(14px,1.45vw,20px);line-height:1.45;color:var(--ink);}
 .bx ul{margin-left:1.1em;}
-.dark .bx{border-color:rgba(255,255,255,.25);border-top-color:var(--verde);background:rgba(255,255,255,.06);}
+.dark .bx{border-color:rgba(255,255,255,.25);border-top-color:var(--fucsia);background:rgba(255,255,255,.06);}
 .dark .bx h3,.dark .bx p,.dark .bx li{color:#fff;}
-.dark .bx .n{color:var(--verde);}
+.dark .bx .n{color:var(--fucsia);}
 
 /* listas grandes */
 ol.big,ul.big{margin-left:1.2em;}
 ol.big li,ul.big li{font-size:clamp(17px,2.15vw,31px);line-height:1.45;margin-bottom:1.2vh;}
 ol.big li strong,ul.big li strong{color:var(--magenta);}
 .dark li{color:rgba(255,255,255,.92);}
-.dark ol.big li strong,.dark ul.big li strong{color:var(--verde);}
+.dark ol.big li strong,.dark ul.big li strong{color:var(--fucsia);}
+.sep ol.big li strong,.sep ul.big li strong{color:var(--naranja);}
 
 /* fórmula / pila de etiquetas */
 .stack{font-family:'JetBrains Mono',monospace;font-size:clamp(15px,2vw,30px);font-weight:700;line-height:1.9;}
@@ -67,7 +73,7 @@ ol.big li strong,ul.big li strong{color:var(--magenta);}
 .ruta{display:grid;grid-template-columns:auto 1fr;column-gap:2.4vw;row-gap:1.5vh;align-items:baseline;}
 .ruta .l{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:clamp(14px,1.75vw,25px);color:var(--magenta);white-space:nowrap;}
 .ruta .v{font-size:clamp(15px,1.85vw,26px);line-height:1.35;}
-.dark .ruta .l{color:var(--verde);}
+.dark .ruta .l{color:var(--fucsia);}
 .dark .ruta .v{color:rgba(255,255,255,.92);}
 
 /* semáforo (colores funcionales) */
@@ -78,8 +84,8 @@ ol.big li strong,ul.big li strong{color:var(--magenta);}
 .sem .c li{font-size:clamp(13px,1.35vw,19px);line-height:1.4;margin-left:1em;}
 
 .timer{display:inline-block;align-self:flex-start;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:clamp(14px,1.6vw,22px);padding:.2em .7em;border-radius:8px;background:var(--soft);color:var(--magenta);margin-top:2vh;}
-.dark .timer{background:var(--verde);color:var(--navy);}
-.verde .timer{background:var(--navy);color:#fff;}
+.dark .timer{background:var(--fucsia);color:#fff;}
+.sep .timer{background:var(--navy);color:#fff;}
 .nota{font-family:'JetBrains Mono',monospace;font-size:clamp(11px,1.2vw,17px);color:var(--muted);margin-top:3vh;max-width:72ch;line-height:1.5;}
 .dark .nota{color:rgba(255,255,255,.7);}
 .pend{font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--naranja);}
@@ -108,13 +114,13 @@ ol.big li strong,ul.big li strong{color:var(--magenta);}
 
 /* resaltado de palabra en título */
 .hl{background:#FBF0F6;color:var(--magenta);padding:0 .15em;border-radius:.12em;}
-.dark .hl{background:var(--verde);color:var(--navy);}
+.dark .hl{background:var(--fucsia);color:#fff;}
 
 /* vocabulario */
 .terms{display:grid;grid-template-columns:1fr 1fr;gap:2.4vh 3vw;}
 .term .t{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:clamp(15px,1.8vw,26px);color:var(--magenta);display:block;}
 .term .d{font-size:clamp(13px,1.45vw,21px);color:var(--ink);line-height:1.4;}
-.dark .term .t{color:var(--verde);}
+.dark .term .t{color:var(--fucsia);}
 .dark .term .d{color:rgba(255,255,255,.9);}
 
 /* flujo de pasos con flechas */
@@ -156,3 +162,16 @@ ol.big li strong,ul.big li strong{color:var(--magenta);}
 .verde li,.verde ol.big li strong,.verde ul.big li strong,.verde .sub strong{color:var(--navy);}
 .verde ol.big li strong,.verde ul.big li strong{text-decoration:underline;text-decoration-color:#fff;text-underline-offset:.15em;}
 .flow:not(.f3) .st:nth-child(4n)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-4.6vh;transform:translateX(-50%);}
+
+/* v2 · tarjetas de casos reales y QR */
+.caso{border:2px solid var(--line);border-left:10px solid var(--fucsia);border-radius:16px;padding:2.2vh 1.6vw;background:#fff;}
+.caso .n{font-family:'JetBrains Mono',monospace;font-size:clamp(11px,1.25vw,16px);font-weight:700;color:var(--navy);display:block;margin-bottom:.6vh;}
+.caso h3{margin-bottom:.6vh;}
+.caso p{font-size:clamp(14px,1.45vw,20px);line-height:1.45;}
+.regla{margin-top:2.4vh;background:var(--negro);color:#fff;border-radius:16px;padding:2vh 1.8vw;font-family:'JetBrains Mono',monospace;font-size:clamp(14px,1.7vw,24px);line-height:1.4;}
+.regla b{color:var(--fucsia);}
+.qrs{display:flex;gap:3vw;align-items:center;margin-top:2.4vh;}
+.qr{background:#fff;border-radius:16px;padding:12px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:clamp(12px,1.3vw,18px);color:var(--negro);font-weight:700;}
+.qr img{display:block;width:clamp(120px,16vw,220px);height:auto;image-rendering:pixelated;margin:0 auto 6px;}
+.app{display:inline-block;background:var(--fucsia);color:#fff;border-radius:999px;padding:.25em .8em;font-family:'JetBrains Mono',monospace;font-size:clamp(12px,1.3vw,18px);font-weight:700;margin-left:.6em;vertical-align:middle;}
+.dark .app{background:#fff;color:var(--negro);}
