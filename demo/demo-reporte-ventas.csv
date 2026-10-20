@@ -1,0 +1,73 @@
+sucursal,mes,categoria,ventas,meta,devoluciones,margen_pct
+Santiago,2026-07,Laptops,3155,3296,39,11.3
+Santiago,2026-07,Impresoras,1062,1133,19,13.7
+Santiago,2026-07,Accesorios,868,927,15,27.1
+Santiago,2026-07,Servicios,696,721,8,44.0
+Santiago,2026-08,Laptops,3181,3296,71,10.2
+Santiago,2026-08,Impresoras,1076,1133,21,14.9
+Santiago,2026-08,Accesorios,906,927,14,29.0
+Santiago,2026-08,Servicios,776,721,15,44.0
+Santiago,2026-09,Laptops,3109,3296,37,10.6
+Santiago,2026-09,Impresoras,1128,1133,14,14.2
+Santiago,2026-09,Accesorios,910,927,14,28.1
+Santiago,2026-09,Servicios,892,721,7,44.0
+Santo Domingo Centro,2026-07,Laptops,3956,4017,65,10.6
+Santo Domingo Centro,2026-07,Impresoras,1309,1339,22,13.6
+Santo Domingo Centro,2026-07,Accesorios,1024,1030,21,27.5
+Santo Domingo Centro,2026-07,Servicios,654,670,12,42.8
+Santo Domingo Centro,2026-08,Laptops,3972,4017,57,12.0
+Santo Domingo Centro,2026-08,Impresoras,1260,1339,21,14.5
+Santo Domingo Centro,2026-08,Accesorios,972,1030,17,27.1
+Santo Domingo Centro,2026-08,Servicios,659,670,14,42.1
+Santo Domingo Centro,2026-09,Laptops,4017,4017,59,11.4
+Santo Domingo Centro,2026-09,Impresoras,1310,1339,24,13.9
+Santo Domingo Centro,2026-09,Accesorios,0,1030,25,27.9
+Santo Domingo Centro,2026-09,Servicios,659,670,7,42.4
+Santo Domingo Este,2026-07,Laptops,2631,2678,65,11.6
+Santo Domingo Este,2026-07,Impresoras,884,927,14,14.3
+Santo Domingo Este,2026-07,Accesorios,673,721,11,27.3
+Santo Domingo Este,2026-07,Servicios,291,309,3,42.5
+Santo Domingo Este,2026-08,Laptops,2296,2678,35,10.8
+Santo Domingo Este,2026-08,Impresoras,843,927,10,13.9
+Santo Domingo Este,2026-08,Accesorios,640,721,16,28.6
+Santo Domingo Este,2026-08,Servicios,281,309,4,41.8
+Santo Domingo Este,2026-09,Laptops,2108,2678,60,11.9
+Santo Domingo Este,2026-09,Impresoras,717,927,11,13.5
+Santo Domingo Este,2026-09,Accesorios,562,721,12,28.2
+Santo Domingo Este,2026-09,Servicios,241,309,3,41.8
+La Vega,2026-07,Laptops,1484,1545,27,11.9
+La Vega,2026-07,Impresoras,812,824,14,14.2
+La Vega,2026-07,Accesorios,507,515,5,28.8
+La Vega,2026-07,Servicios,256,258,6,42.6
+La Vega,2026-08,Laptops,1487,1545,24,10.2
+La Vega,2026-08,Impresoras,809,824,9,13.1
+La Vega,2026-08,Accesorios,488,515,6,27.7
+La Vega,2026-08,Servicios,241,258,2,41.3
+La Vega,2026-09,Laptops,1452,1545,22,10.1
+La Vega,2026-09,Impresoras,824,824,115,13.3
+La Vega,2026-09,Accesorios,490,515,7,27.7
+La Vega,2026-09,Servicios,242,258,6,43.0
+San Francisco,2026-07,Laptops,1296,1339,22,10.2
+San Francisco,2026-07,Impresoras,581,618,9,13.5
+San Francisco,2026-07,Accesorios,462,464,6,27.0
+San Francisco,2026-07,Servicios,228,227,4,41.3
+San Francisco,2026-08,Laptops,1304,1339,14,11.1
+San Francisco,2026-08,Impresoras,623,618,14,14.4
+San Francisco,2026-08,Accesorios,441,464,7,27.3
+San Francisco,2026-08,Servicios,225,227,4,42.6
+San Francisco,2026-09,Laptops,1282,1339,17,11.6
+San Francisco,2026-09,Impresoras,623,618,14,14.6
+San Francisco,2026-09,Accesorios,461,464,10,27.5
+San Francisco,2026-09,Servicios,220,227,3,41.1
+Puerto Plata,2026-07,Laptops,1111,1133,15,4.5
+Puerto Plata,2026-07,Impresoras,533,515,12,7.9
+Puerto Plata,2026-07,Accesorios,435,412,10,22.9
+Puerto Plata,2026-07,Servicios,187,185,2,35.5
+Puerto Plata,2026-08,Laptops,1202,1133,14,5.2
+Puerto Plata,2026-08,Impresoras,578,515,12,8.0
+Puerto Plata,2026-08,Accesorios,453,412,9,21.2
+Puerto Plata,2026-08,Servicios,204,185,4,36.6
+Puerto Plata,2026-09,Laptops,1324,1133,19,4.4
+Puerto Plata,2026-09,Impresoras,604,515,8,8.6
+Puerto Plata,2026-09,Accesorios,490,412,7,21.8
+Puerto Plata,2026-09,Servicios,220,185,4,35.3

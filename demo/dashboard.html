@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ventas jul–sep 2026 · demo</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="../assets/logo.svg">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#002F6C;--azul:#2F6BBF;--rosa:#E31C79;--magenta:#A20067;--ink:#1F2A3C;--muted:#5B6678;--line:#E3E6EC;--soft:#F5F6F9;--bien:#2E7D32;--mal:#C62828;--fondo:#fff;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--fondo);color:var(--ink);font-family:Inter,system-ui,sans-serif;padding:0 0 48px}
+.franja{height:8px;background:linear-gradient(90deg,var(--navy) 0 40%,var(--rosa) 40% 75%,var(--magenta) 75%)}
+.wrap{max-width:1180px;margin:0 auto;padding:20px 24px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px;border-bottom:2px solid var(--ink);padding-bottom:14px;margin-bottom:20px}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--magenta);font-weight:700}
+h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(22px,3vw,34px);letter-spacing:-.02em;margin-top:4px}
+h2{font-family:'Space Grotesk',sans-serif;font-size:17px;margin:0 0 10px}
+.nota{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)}
+.ficticio{display:inline-block;background:#111;color:#fff;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;letter-spacing:.06em}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:22px}
+.kpi{border:2px solid var(--line);border-radius:14px;padding:14px 16px}
+.kpi .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-family:'JetBrains Mono',monospace}
+.kpi .v{font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:700;margin:4px 0 2px}
+.kpi .d{font-size:13px;color:var(--muted)}
+.kpi .d.up{color:var(--bien)}.kpi .d.down{color:var(--mal)}
+.grid{display:grid;grid-template-columns:3fr 2fr;gap:18px;margin-bottom:22px}
+.card{border:2px solid var(--line);border-radius:14px;padding:16px 18px;background:#fff}
+@media(max-width:860px){.grid{grid-template-columns:1fr}}
+/* barras horizontales: una serie (ventas sep) con la meta como marca */
+.bars{display:grid;gap:10px}
+.bar{display:grid;grid-template-columns:170px 1fr 70px;gap:10px;align-items:center;font-size:14px}
+.bar .pista{position:relative;height:22px;background:var(--soft);border-radius:4px}
+.bar .fill{position:absolute;left:0;top:0;bottom:0;background:var(--azul);border-radius:0 4px 4px 0}
+.bar .meta{position:absolute;top:-4px;bottom:-4px;width:2px;background:var(--ink)}
+.bar .num{font-family:'JetBrains Mono',monospace;font-weight:700;text-align:right}
+.bar.alerta .fill{background:var(--rosa)}
+.leg{font-size:12px;color:var(--muted);margin-top:8px;display:flex;gap:16px;flex-wrap:wrap}
+.leg i{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-2px;margin-right:4px}
+/* multiples: tendencia por sucursal */
+.mult{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:860px){.mult{grid-template-columns:repeat(2,1fr)}}
+.m{border:1px solid var(--line);border-radius:10px;padding:10px 10px 6px}
+.m b{font-size:13px;display:block;margin-bottom:4px}
+.m svg{width:100%;height:64px;display:block}
+.m .pct{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700}
+.m .pct.down{color:var(--mal)}.m .pct.up{color:var(--bien)}
+/* alertas y decisiones */
+.alertas{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.al{border:2px solid var(--line);border-left:8px solid var(--rosa);border-radius:12px;padding:12px 14px}
+.al.op{border-left-color:var(--bien)}
+.al .t{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.al h3{font-family:'Space Grotesk',sans-serif;font-size:16px;margin:4px 0 6px}
+.al p{font-size:14px;line-height:1.45;color:#333}
+.al .dec{margin-top:8px;background:#111;color:#fff;border-radius:8px;padding:8px 10px;font-size:13px;line-height:1.4}
+.al .dec b{color:var(--rosa)}
+.preg{list-style:none;display:grid;gap:8px}
+.preg li{border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:14px;line-height:1.45}
+.preg li span{font-family:'JetBrains Mono',monospace;color:var(--magenta);font-weight:700;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:right;padding:7px 8px;border-bottom:1px solid var(--line)}
+th:first-child,td:first-child{text-align:left}
+th{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+td.mal{color:var(--mal);font-weight:700}
+details summary{cursor:pointer;font-weight:600;margin:14px 0 8px}
+.tip{position:fixed;pointer-events:none;background:#111;color:#fff;font-size:12px;padding:6px 9px;border-radius:6px;display:none;z-index:9}
+</style>
+</head>
+<body>
+<div class="franja"></div>
+<div class="wrap">
+<header>
+  <div><div class="eyebrow">// demo · preparación del comité · generado con IA a partir del reporte</div>
+    <h1>Ventas julio–septiembre 2026 · por sucursal</h1>
+    <p class="nota">RD$ miles · 6 sucursales · 4 categorías · <span class="ficticio">DATOS FICTICIOS</span></p></div>
+  <img src="../assets/logo.svg" alt="CECOMSA" style="height:40px">
+</header>
+
+<div class="kpis" id="kpis"></div>
+
+<div class="grid">
+  <div class="card"><h2>Ventas de septiembre vs. meta</h2><div class="bars" id="bars"></div>
+    <div class="leg"><span><i style="background:var(--azul)"></i>Ventas sep</span><span><i style="background:var(--ink);width:2px"></i> Meta</span><span><i style="background:var(--rosa)"></i>⚠ Alerta: cae tres meses seguidos</span></div></div>
+  <div class="card"><h2>Tendencia del trimestre</h2><div class="mult" id="mult"></div><p class="nota" style="margin-top:8px">Ventas totales por mes · jul → sep · el porcentaje es el cambio del trimestre</p></div>
+</div>
+
+<div class="card" style="margin-bottom:22px"><h2>Tres señales y tres decisiones para el lunes</h2>
+<div class="alertas">
+  <div class="al"><div class="t">riesgo · tendencia</div><h3>Santo Domingo Este cae tres meses seguidos</h3><p>4,479 → 4,060 → 3,628 (−19 %). Bajan las cuatro categorías: no es un producto, es la sucursal.</p><div class="dec"><b>Decisión:</b> visita del gerente comercial esta semana y plan de recuperación con fecha. No tocar metas hasta saber la causa.</div></div>
+  <div class="al"><div class="t">riesgo · calidad</div><h3>Devoluciones de impresoras en La Vega: 14 %</h3><p>Lo normal es 1–2 %. Solo impresoras, solo La Vega, solo septiembre. Parece un lote.</p><div class="dec"><b>Decisión:</b> detener la venta del lote, revisar números de serie y abrir reclamo con el suplidor. Avisar a las demás sucursales.</div></div>
+  <div class="al op"><div class="t">oportunidad · margen</div><h3>Servicios en Santiago crece 32 % con el mejor margen (44 %)</h3><p>700 → 924 en el trimestre. Es la línea más rentable de la empresa y solo despega en una sucursal.</p><div class="dec"><b>Decisión:</b> documentar qué hizo Santiago y replicarlo en Santo Domingo Centro y Este en octubre, con meta propia de servicios.</div></div>
+</div></div>
+
+<div class="grid">
+  <div class="card"><h2>Lo que estos datos no responden</h2>
+  <ol class="preg">
+    <li><span>1</span>¿Por qué cae Santo Domingo Este? ¿Rotación de vendedores, competencia nueva, obra en la zona? → gerente de la sucursal y RR. HH.</li>
+    <li><span>2</span>¿El 14 % de devoluciones en La Vega es un solo modelo o un lote completo? → almacén y suplidor.</li>
+    <li><span>3</span>¿Accesorios en Santo Domingo Centro vendió <b>cero</b> en septiembre por falta de inventario? → compras. Si es stock, se perdió la categoría de mejor margen de la sucursal más grande.</li>
+  </ol>
+  <p class="nota" style="margin-top:10px">Señal extra: Puerto Plata supera la meta (+18 %) con 6 puntos menos de margen. Revisar descuentos antes de celebrar.</p></div>
+  <div class="card"><h2>Borrador de correo · para revisar y firmar</h2>
+  <p style="font-size:13px;line-height:1.5"><b>Asunto:</b> Comité del lunes · tres decisiones sobre el trimestre jul–sep<br><br>Equipo,<br><br>El reporte del trimestre deja tres puntos que necesitan decisión el lunes:<br>1. <b>Santo Domingo Este</b> lleva tres meses de caída (−19 %). Propuesta: visita esta semana y plan de recuperación con fecha.<br>2. <b>Impresoras en La Vega</b> cerró septiembre con 14 % de devoluciones. Propuesta: detener el lote y abrir reclamo al suplidor.<br>3. <b>Servicios en Santiago</b> creció 32 % con el mejor margen. Propuesta: replicarlo en Santo Domingo Centro y Este en octubre.<br><br>Adjunto el reporte. Les pido llegar con la respuesta de su área a las preguntas del final. 20 minutos.<br><br>[Firma]</p>
+  <p class="nota" style="margin-top:10px">Antes de enviar: cifras contra el reporte · sin nombres de personas · las propuestas son las que de verdad quieres llevar.</p></div>
+</div>
+
+<div class="card"><details open><summary>Tabla · septiembre por sucursal y categoría</summary><div id="tabla"></div></details>
+<p class="nota">Fuente: <a href="demo-reporte-ventas.csv">demo-reporte-ventas.csv</a> (72 filas). Generado como demostración para el workshop «IA para líderes».</p></div>
+</div>
+<div class="tip" id="tip"></div>
+
+<script>
+fetch('demo-reporte-ventas.json').then(r => r.json()).then(rows => {
+  const suc = [...new Set(rows.map(r => r.sucursal))], meses = ['2026-07', '2026-08', '2026-09'];
+  const sum = (f) => rows.filter(f).reduce((s, r) => s + r.ventas, 0);
+  const fmt = (n) => n.toLocaleString('es-DO');
+  const tot = Object.fromEntries(suc.map(s => [s, meses.map(m => sum(r => r.sucursal === s && r.mes === m))]));
+  const meta = Object.fromEntries(suc.map(s => [s, rows.filter(r => r.sucursal === s && r.mes === '2026-09').reduce((a, r) => a + r.meta, 0)]));
+  // KPIs
+  const tSep = sum(r => r.mes === '2026-09'), tJul = sum(r => r.mes === '2026-07');
+  const devSep = rows.filter(r => r.mes === '2026-09').reduce((a, r) => a + r.devoluciones, 0);
+  const mgSep = rows.filter(r => r.mes === '2026-09').reduce((a, r) => a + r.ventas * r.margen_pct / 100, 0);
+  const kp = [['Ventas septiembre', fmt(tSep), ((tSep / tJul - 1) * 100).toFixed(1) + ' % vs julio', tSep >= tJul ? 'up' : 'down'],
+    ['Cumplimiento de meta', Math.round(100 * tSep / Object.values(meta).reduce((a, b) => a + b, 0)) + ' %', 'septiembre, todas las sucursales', ''],
+    ['Margen bruto', Math.round(100 * mgSep / tSep) + ' %', 'septiembre', ''],
+    ['Devoluciones', (100 * devSep / tSep).toFixed(1) + ' %', 'de las ventas · La Vega impresoras: 14 %', 'down']];
+  document.getElementById('kpis').innerHTML = kp.map(k => `<div class="kpi"><div class="l">${k[0]}</div><div class="v">${k[1]}</div><div class="d ${k[3]}">${k[2]}</div></div>`).join('');
+  // barras
+  const max = Math.max(...suc.map(s => Math.max(tot[s][2], meta[s]))) * 1.08;
+  document.getElementById('bars').innerHTML = suc.map(s => {
+    const v = tot[s][2], alerta = tot[s][1] < tot[s][0] * 0.95 && tot[s][2] < tot[s][1] * 0.95;
+    return `<div class="bar ${alerta ? 'alerta' : ''}" data-tip="${s}: ${fmt(v)} vs meta ${fmt(meta[s])} (${Math.round(100 * v / meta[s])} %)"><span>${alerta ? '⚠ ' : ''}${s}</span><div class="pista"><div class="fill" style="width:${100 * v / max}%"></div><div class="meta" style="left:${100 * meta[s] / max}%"></div></div><span class="num">${fmt(v)}</span></div>`;
+  }).join('');
+  // tendencia
+  document.getElementById('mult').innerHTML = suc.map(s => {
+    const v = tot[s], lo = Math.min(...v) * 0.85, hi = Math.max(...v) * 1.05, y = (n) => 56 - 48 * (n - lo) / (hi - lo);
+    const pts = v.map((n, i) => `${10 + i * 40},${y(n).toFixed(1)}`).join(' ');
+    const pct = (v[2] / v[0] - 1) * 100, cls = pct <= -5 ? 'down' : pct >= 5 ? 'up' : '';
+    return `<div class="m"><b>${s}</b><svg viewBox="0 0 100 64" preserveAspectRatio="none"><polyline points="${pts}" fill="none" stroke="${cls === 'down' ? '#E31C79' : '#2F6BBF'}" stroke-width="2.5" stroke-linejoin="round"/>${v.map((n, i) => `<circle cx="${10 + i * 40}" cy="${y(n).toFixed(1)}" r="4" fill="${cls === 'down' ? '#E31C79' : '#2F6BBF'}" stroke="#fff" stroke-width="2"><title>${['jul', 'ago', 'sep'][i]}: ${fmt(n)}</title></circle>`).join('')}</svg><span class="pct ${cls}">${pct > 0 ? '+' : ''}${pct.toFixed(0)} %</span></div>`;
+  }).join('');
+  // tabla
+  const cats = [...new Set(rows.map(r => r.categoria))];
+  document.getElementById('tabla').innerHTML = `<table><thead><tr><th>Sucursal</th>${cats.map(c => `<th>${c}</th>`).join('')}<th>Total</th><th>Meta</th><th>Devol.</th><th>Margen</th></tr></thead><tbody>` +
+    suc.map(s => { const rs = rows.filter(r => r.sucursal === s && r.mes === '2026-09'); const t = rs.reduce((a, r) => a + r.ventas, 0), d = rs.reduce((a, r) => a + r.devoluciones, 0), m = rs.reduce((a, r) => a + r.ventas * r.margen_pct / 100, 0);
+      return `<tr><td>${s}</td>${cats.map(c => { const r = rs.find(x => x.categoria === c); const malo = r.ventas === 0 || r.devoluciones / Math.max(1, r.ventas) > 0.1; return `<td class="${malo ? 'mal' : ''}">${fmt(r.ventas)}${r.devoluciones / Math.max(1, r.ventas) > 0.1 ? ' ⚠' : ''}</td>`; }).join('')}<td><b>${fmt(t)}</b></td><td>${fmt(rs.reduce((a, r) => a + r.meta, 0))}</td><td class="${d / t > 0.04 ? 'mal' : ''}">${(100 * d / t).toFixed(1)} %</td><td>${Math.round(100 * m / t)} %</td></tr>`; }).join('') + '</tbody></table>';
+  // tooltip de barras
+  const tip = document.getElementById('tip');
+  document.querySelectorAll('[data-tip]').forEach(el => { el.onmousemove = (e) => { tip.style.display = 'block'; tip.textContent = el.dataset.tip; tip.style.left = e.clientX + 12 + 'px'; tip.style.top = e.clientY + 12 + 'px'; }; el.onmouseleave = () => (tip.style.display = 'none'); });
+});
+</script>
+</body>
+</html>
