@@ -179,3 +179,7 @@ ol.big li strong,ul.big li strong{color:var(--magenta);}
 /* botón dentro de una lámina (abre en pestaña nueva) */
 .btn-sl{display:inline-block;background:var(--fucsia);color:#fff;text-decoration:none;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(13px,1.5vw,20px);padding:.55em 1.1em;border-radius:12px;margin:0 .6em .6em 0;}
 .btn-sl:hover{background:#fff;color:var(--negro);}
+.vivo{margin-top:2vh;}
+.btn-sl.mini{font-size:clamp(11px,1.15vw,15px);padding:.4em .9em;background:var(--negro);}
+.dark .btn-sl.mini{background:var(--fucsia);}
+.btn-sl.mini:hover{background:var(--fucsia);color:#fff;}
