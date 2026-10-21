@@ -31,8 +31,7 @@
 
   var foot = document.querySelector('footer');
   if (foot && !foot.innerHTML.trim()) {
-    foot.innerHTML = '<div class="wrap"><span>Modelo de Liderazgo CECOMSA · Workshop «IA para líderes: menos tareas, más resultados» · Ing. Solenny Peralta</span>' +
-      '<span class="pend">Borrador · lo marcado en naranja está por confirmar</span></div>';
+    foot.innerHTML = '<div class="wrap"><span>Modelo de Liderazgo CECOMSA · Workshop «IA para líderes: menos tareas, más resultados» · Ing. Solenny Peralta</span></div>';
   }
 
   document.addEventListener('click', function (e) {
