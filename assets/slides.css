@@ -183,3 +183,5 @@ ol.big li strong,ul.big li strong{color:var(--magenta);}
 .btn-sl.mini{font-size:clamp(11px,1.15vw,15px);padding:.4em .9em;background:var(--negro);}
 .dark .btn-sl.mini{background:var(--fucsia);}
 .btn-sl.mini:hover{background:var(--fucsia);color:#fff;}
+.qr.chico img{width:clamp(80px,9vw,120px);}
+.qr.chico{padding:8px;}
