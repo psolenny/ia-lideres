@@ -185,3 +185,11 @@ ol.big li strong,ul.big li strong{color:var(--magenta);}
 .btn-sl.mini:hover{background:var(--fucsia);color:#fff;}
 .qr.chico img{width:clamp(80px,9vw,120px);}
 .qr.chico{padding:8px;}
+
+/* capturas de pantalla dentro de una lámina */
+.captura-fila{display:grid;grid-template-columns:1.25fr 1fr;gap:2.4vw;align-items:start;margin-top:1.6vh;}
+.captura{margin:0;border:2px solid var(--line);border-radius:14px;overflow:hidden;background:var(--soft);}
+.captura img{display:block;width:100%;height:auto;max-height:52vh;object-fit:contain;object-position:top;}
+.captura figcaption{font-family:'JetBrains Mono',monospace;font-size:clamp(11px,1.15vw,15px);color:var(--muted);padding:.6em 1em;border-top:1px solid var(--line);}
+.captura.falta img{display:none;}
+.captura.falta::before{content:"[captura pendiente: assets/captura-conectores-claude.png]";display:block;padding:12vh 2vw;text-align:center;font-family:'JetBrains Mono',monospace;color:var(--naranja);font-weight:700;}
